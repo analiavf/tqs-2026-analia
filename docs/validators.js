@@ -17,7 +17,7 @@ function calcularDigitoVerificador(digitos, pesoInicial) {
 
 export function validarCpf(cpf) {
     if (typeof cpf !== "string") return false;
-
+    cpf = cpf.trim();  
     const apenasDigitos = cpf.replace(/[.\-\s]/g, "");
 
     if (apenasDigitos.length !== 11 || !/^\d{11}$/.test(apenasDigitos)) return false;
@@ -31,5 +31,5 @@ export function validarCpf(cpf) {
 
 export function validarEmail(email) {
     if (typeof email !== "string" || email.length === 0) return false;
-    return REGEX_EMAIL.test(email);
+    return REGEX_EMAIL.test(email.trim());
 }
