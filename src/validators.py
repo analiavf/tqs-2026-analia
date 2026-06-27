@@ -19,7 +19,7 @@ def _calcular_digito_verificador(digitos: str, peso_inicial: int) -> int:
 def validar_cpf(cpf: str | None) -> bool:
     if not isinstance(cpf, str):
         return False
-
+    cpf = cpf.strip()
     apenas_digitos = re.sub(r"[.\-\s]", "", cpf)
 
     if len(apenas_digitos) != 11 or not apenas_digitos.isdigit():
@@ -37,4 +37,5 @@ def validar_cpf(cpf: str | None) -> bool:
 def validar_email(email: str | None) -> bool:
     if not isinstance(email, str) or not email:
         return False
-    return _REGEX_EMAIL.match(email) is not None
+    
+    return _REGEX_EMAIL.match(email.strip())
